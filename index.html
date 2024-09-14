@@ -9,7 +9,7 @@
     <style>
         @font-face {
             font-family: 'Minecraft';
-            src: url('minecraft.otf') format('opentype');
+            src: url('minecraft.otf?v=1.0') format('opentype'); /* Added version number */
             font-weight: normal;
             font-style: normal;
         }
@@ -61,7 +61,7 @@
         }
 
         .button-container {
-            margin-bottom: 30vh; /* Increased margin to move it up */
+            margin-bottom: 10vh; /* Increased margin to move it up */
             text-align: center;
         }
 
@@ -185,8 +185,8 @@
     </div>
     <header>
         <picture>
-            <source srcset="images/porpol-logo.webp" type="image/webp">
-            <img src="images/porpol-logo.png" alt="Porpol Logo" class="logo">
+            <source srcset="images/porpol-logo.webp?v=1.0" type="image/webp"> <!-- Added version number -->
+            <img src="images/porpol-logo.png?v=1.0" alt="Porpol Logo" class="logo"> <!-- Added version number -->
         </picture>
     </header>
     <div class="container">
