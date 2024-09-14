@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Porpol - Join the Discord Server to download Porpol.">
+    <meta name="keywords" content="Porpol, Discord, Download, Minecraft, MCPE, MCBE, Texture Pack, Purple, UI, GUI, Armor, Particles, The, Best">
     <title>Porpol</title>
     <style>
         @font-face {
@@ -28,26 +30,39 @@
             align-items: center;
             height: 100vh;
             overflow: hidden;
+            padding: 1rem;
         }
 
         header {
             width: 100%;
-            background-color: #3d0059; /* 30% lighter than #28003f */
-            padding: 1rem 0;
+            background-color: #3d0059;
+            height: 80px; /* Increased height by 30px */
             display: flex;
             justify-content: center;
             align-items: center;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .container {
             text-align: center;
             padding: 1rem;
-            margin-top: 20px; /* Adjust this value if needed */
+            margin-top: 80px; /* Adjusted to account for the larger header */
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
         .logo {
-            max-width: 80%;
-            height: auto;
+            max-width: 100%;
+            height: 60px; /* Adjusted height to fit within the header */
+        }
+
+        .button-container {
+            margin-bottom: 30px; /* Adjust this value to move the button and text higher */
+            text-align: center;
         }
 
         a {
@@ -171,6 +186,9 @@
         <img src="porpol-logo.png" alt="Porpol Logo" class="logo">
     </header>
     <div class="container">
+        <!-- Content can go here if needed -->
+    </div>
+    <div class="button-container">
         <a href="https://discord.gg/5UpCpSRPK6" target="_blank">Join Discord Server</a>
         <div class="download-text">Download Porpol on the Discord Server</div>
     </div>
