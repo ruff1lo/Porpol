@@ -36,7 +36,7 @@
         header {
             width: 100%;
             background-color: #3d0059;
-            height: 80px; /* Increased height by 30px */
+            height: 80px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -48,7 +48,7 @@
         .container {
             text-align: center;
             padding: 1rem;
-            margin-top: 80px; /* Adjusted to account for the larger header */
+            margin-top: 80px;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
@@ -57,11 +57,11 @@
 
         .logo {
             max-width: 100%;
-            height: 60px; /* Adjusted height to fit within the header */
+            height: 60px;
         }
 
         .button-container {
-            margin-bottom: 30px; /* Adjust this value to move the button and text higher */
+            margin-bottom: 30px;
             text-align: center;
         }
 
@@ -167,9 +167,8 @@
             }
         }
     </style>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PPZ27GZ2Z"></script>
-    <script>
+    <script defer>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
@@ -183,7 +182,10 @@
         <div class="loading-text">Loading...</div>
     </div>
     <header>
-        <img src="porpol-logo.png" alt="Porpol Logo" class="logo">
+        <picture>
+            <source srcset="images/porpol-logo.webp" type="image/webp">
+            <img src="images/porpol-logo.png" alt="Porpol Logo" class="logo">
+        </picture>
     </header>
     <div class="container">
         <!-- Content can go here if needed -->
@@ -196,7 +198,6 @@
         © 2024 Porpol. All rights reserved. <br>
         Not affiliated with Mojang Studios.
     </footer>
-
     <script>
         window.addEventListener('load', () => {
             const loadingContainer = document.getElementById('loading-container');
