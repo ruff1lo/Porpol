@@ -9,7 +9,7 @@
     <style>
         @font-face {
             font-family: 'Minecraft';
-            src: url('minecraft.woff2?v=1.5') format('woff2');
+            src: url('minecraft.woff2?v=1.6') format('woff2');
             font-weight: normal;
             font-style: normal;
         }
@@ -21,8 +21,9 @@
         }
 
         html, body {
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            width: 100%; /* Ensure full width */
             height: 100%; /* Ensure full height */
-            overflow: hidden; /* Prevent scrolling */
         }
 
         body {
@@ -232,8 +233,8 @@
 
     <header>
         <picture>
-            <source srcset="images/porpol-logo.webp?v=1.5" type="image/webp">
-            <img src="images/porpol-logo.png?v=1.5" alt="Porpol Logo" class="logo">
+            <source srcset="images/porpol-logo.webp?v=1.2" type="image/webp">
+            <img src="images/porpol-logo.png?v=1.6" alt="Porpol Logo" class="logo">
         </picture>
     </header>
 
