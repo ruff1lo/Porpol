@@ -9,7 +9,7 @@
     <style>
         @font-face {
             font-family: 'Minecraft';
-            src: url('minecraft.otf?v=1.0') format('opentype'); /* Added version number */
+            src: url('minecraft.woff2?v=1.0') format('woff2');
             font-weight: normal;
             font-style: normal;
         }
@@ -26,43 +26,41 @@
             color: white;
             display: flex;
             flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden; /* Disable scrolling */
-            padding: 1rem;
+            min-height: 100vh; /* Full viewport height */
+            margin: 0;
         }
 
         header {
             width: 100%;
-            background-color: #3d0059;
-            height: 10vh;
+            background-color: #270038;
             display: flex;
             justify-content: center;
             align-items: center;
-            position: absolute;
-            top: 0;
-            left: 0;
-        }
-
-        .container {
-            text-align: center;
             padding: 1rem;
-            margin-top: 10vh;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
         }
 
         .logo {
             max-width: 100%;
             height: auto;
+            max-height: 10vh; /* Responsive height */
+        }
+
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1; /* Takes up remaining space */
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .igscreenshot1 {
+            margin: 2rem 0; /* Space for product images */
         }
 
         .button-container {
-            margin-bottom: 10vh; /* Increased margin to move it up */
             text-align: center;
+            margin: 2rem 0; /* Space between content and footer */
         }
 
         a {
@@ -76,8 +74,9 @@
             transition: background-color 0.3s, color 0.3s;
             display: inline-block;
             background-color: #28003f;
-            margin-top: 20px;
-            display: block; /* Ensure the link is displayed as a block */
+            width: 80%; /* Button takes up most of the width */
+            max-width: 300px; /* Restrict the size on larger screens */
+            text-align: center;
         }
 
         a:hover {
@@ -87,17 +86,16 @@
 
         .download-text {
             margin-top: 10px;
-            font-size: 0.8rem;
+            font-size: 0.9rem;
             color: #a06cc4;
-            display: block; /* Ensure the text is displayed as a block */
         }
 
         footer {
-            position: absolute;
-            bottom: 10px;
             text-align: center;
             width: 100%;
             font-size: 0.9rem;
+            padding: 1rem;
+            background-color: #270038;
         }
 
         .spinner {
@@ -139,14 +137,22 @@
             display: none;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 1024px) {
+            header {
+                padding: 0.8rem;
+            }
+
+            .logo {
+                max-height: 9vh;
+            }
+
             a {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
                 padding: 0.8rem 1.5rem;
             }
 
             .download-text {
-                font-size: 0.7rem;
+                font-size: 0.8rem;
             }
 
             footer {
@@ -154,10 +160,46 @@
             }
         }
 
+        @media (max-width: 768px) {
+            header {
+                padding: 0.6rem;
+            }
+
+            .logo {
+                max-height: 8vh;
+            }
+
+            a {
+                font-size: 1.2rem;
+                padding: 0.7rem 1.2rem;
+            }
+
+            .download-text {
+                font-size: 0.7rem;
+            }
+
+            footer {
+                font-size: 0.75rem;
+            }
+        }
+
         @media (max-width: 480px) {
+            header {
+                padding: 0.5rem;
+            }
+
+            .logo {
+                max-height: 7vh;
+            }
+
+            .main-content {
+                padding: 0.5rem;
+            }
+
             a {
                 font-size: 1rem;
                 padding: 0.6rem 1rem;
+                max-width: 90%;
             }
 
             .download-text {
@@ -174,7 +216,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-5PPZ27GZ2Z');
     </script>
 </head>
@@ -183,23 +224,30 @@
         <div class="spinner"></div>
         <div class="loading-text">Loading...</div>
     </div>
+
     <header>
         <picture>
-            <source srcset="images/porpol-logo.webp?v=1.0" type="image/webp"> <!-- Added version number -->
-            <img src="images/porpol-logo.png?v=1.0" alt="Porpol Logo" class="logo"> <!-- Added version number -->
+            <source srcset="images/porpol-logo.webp?v=1.0" type="image/webp">
+            <img src="images/porpol-logo.png?v=1.0" alt="Porpol Logo" class="logo">
         </picture>
     </header>
-    <div class="container">
-        <!-- Content can go here if needed -->
+
+    <div class="main-content">
+        <div class="igscreenshot1">
+            <!-- Add your product images here -->
+        </div>
     </div>
+
     <div class="button-container">
         <a href="https://discord.gg/5UpCpSRPK6" target="_blank">Join Discord Server</a>
         <div class="download-text">Download Porpol on the Discord Server</div>
     </div>
+
     <footer>
         © 2024 Porpol. All rights reserved. <br>
         Not affiliated with Mojang Studios.
     </footer>
+
     <script>
         window.addEventListener('load', () => {
             const loadingContainer = document.getElementById('loading-container');
