@@ -7,11 +7,25 @@
     <meta name="keywords" content="Porpol, Discord, Download, Minecraft, MCPE, MCBE, Texture Pack, Purple, UI, GUI, Armor, Particles, The, Best">
     <title>Porpol</title>
     <style>
+        :root {
+            --bg-color: #28003f;
+            --header-bg-color: #270038;
+            --text-color: white;
+            --link-bg-color: #28003f;
+            --link-hover-bg-color: white;
+            --link-hover-text-color: #28003f;
+            --border-color: white;
+            --spinner-border-color: rgba(255, 255, 255, 0.3);
+            --spinner-border-top-color: white;
+            --download-text-color: #a06cc4;
+        }
+
         @font-face {
             font-family: 'Minecraft';
-            src: url('minecraft.woff2?v=1.6') format('woff2');
+            src: url('minecraft.woff2?v=1.7') format('woff2');
             font-weight: normal;
             font-style: normal;
+            font-display: swap; /* Ensure text is visible during font loading */
         }
 
         * {
@@ -21,24 +35,21 @@
         }
 
         html, body {
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            width: 100%; /* Ensure full width */
-            height: 100%; /* Ensure full height */
-        }
-
-        body {
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
             font-family: 'Minecraft', Arial, sans-serif;
-            background-color: #28003f;
-            color: white;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Full viewport height */
+            min-height: 100vh;
             margin: 0;
         }
 
         header {
             width: 100%;
-            background-color: #270038;
+            background-color: var(--header-bg-color);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -48,52 +59,51 @@
         .logo {
             max-width: 100%;
             height: auto;
-            max-height: 10vh; /* Responsive height */
+            max-height: 10vh;
         }
 
         .main-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            flex: 1; /* Takes up remaining space */
+            flex: 1;
             width: 100%;
             padding: 1rem;
         }
 
         .igscreenshot1 {
-            margin: 2rem 0; /* Space for product images */
+            margin: 2rem 0;
         }
 
         .button-container {
             text-align: center;
-            margin: 2rem 0; /* Space between content and footer */
+            margin: 2rem 0;
         }
 
         a {
-            font-family: 'Minecraft', Arial, sans-serif;
-            color: white;
+            color: var(--text-color);
             text-decoration: none;
             font-size: 1.5rem;
-            border: 3px solid white;
+            border: 3px solid var(--border-color);
             padding: 1rem 2rem;
             border-radius: 5px;
             transition: background-color 0.3s, color 0.3s;
-            display: inline-block;
-            background-color: #28003f;
-            width: 80%; /* Button takes up most of the width */
-            max-width: 300px; /* Restrict the size on larger screens */
+            background-color: var(--link-bg-color);
+            width: 80%;
+            max-width: 300px;
             text-align: center;
+            display: inline-block;
         }
 
         a:hover {
-            background-color: white;
-            color: #28003f;
+            background-color: var(--link-hover-bg-color);
+            color: var(--link-hover-text-color);
         }
 
         .download-text {
             margin-top: 10px;
             font-size: 0.9rem;
-            color: #a06cc4;
+            color: var(--download-text-color);
         }
 
         footer {
@@ -101,12 +111,12 @@
             width: 100%;
             font-size: 0.9rem;
             padding: 1rem;
-            background-color: #270038;
+            background-color: var(--header-bg-color);
         }
 
         .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-top: 4px solid white;
+            border: 4px solid var(--spinner-border-color);
+            border-top: 4px solid var(--spinner-border-top-color);
             border-radius: 50%;
             width: 40px;
             height: 40px;
@@ -120,9 +130,7 @@
         }
 
         .loading-text {
-            font-family: 'Minecraft', Arial, sans-serif;
             font-size: 1rem;
-            color: white;
         }
 
         .loading-container {
@@ -135,7 +143,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: #28003f;
+            background-color: var(--bg-color);
             z-index: 1000;
         }
 
@@ -220,7 +228,7 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-5PPZ27GZ2Z"></script>
     <script defer>
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
         gtag('config', 'G-5PPZ27GZ2Z');
     </script>
@@ -233,15 +241,13 @@
 
     <header>
         <picture>
-            <source srcset="images/porpol-logo.webp?v=1.2" type="image/webp">
-            <img src="images/porpol-logo.png?v=1.6" alt="Porpol Logo" class="logo">
+            <source srcset="images/Wporpol-logo.webp?v=1.2" type="image/webp">
+            <img src="images/Wporpol-logo.png?v=1.7" alt="Porpol Logo" class="logo">
         </picture>
     </header>
 
     <div class="main-content">
-        <div class="igscreenshot1">
-            <!-- Add your product images here -->
-        </div>
+        <div class="igscreenshot1"></div>
     </div>
 
     <div class="button-container">
@@ -256,8 +262,7 @@
 
     <script>
         window.addEventListener('load', () => {
-            const loadingContainer = document.getElementById('loading-container');
-            loadingContainer.classList.add('hidden');
+            document.getElementById('loading-container').classList.add('hidden');
         });
     </script>
 </body>
