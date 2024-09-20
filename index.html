@@ -12,26 +12,28 @@
             --header-bg-color: #141414;
             --text-color: #5C0A8F;
             --button-color: #5C0A8F;
-            --button-hover-bg-color: #A020F0FF;
-            --button-hover-text-color: #ffffff;
-            --button-pressed-bg-color: #4b0082; /* Darker color for button pressed state */
-            --button-pressed-text-color: #ffffff; /* White color for button pressed text */
+            --button-text-color: #0f0f0f;
+            --button-pressed-bg-color: #cd7dff;
+            --button-pressed-text-color: #0f0f0f;
+            --button-pressed-border-color: #cd7dff;
             --font-size-large: 2rem;
             --font-size-medium: 1.5rem;
             --font-size-small: 1rem;
             --font-size-xsmall: 0.8rem;
             --font-size-xxlarge: 2.5rem;
             --font-size-xlarge: 2rem;
-            --font-size-description: 1.2rem; /* Smaller size for <h3> */
-            --font-size-button: 1.2rem; /* Increased font size for button */
-            --font-size-download-text: 0.8rem; /* Smaller font size for download text */
+            --font-size-description: 1.2rem;
+            --font-size-button: 1.2rem;
+            --font-size-download-text: 0.8rem;
             --max-width: 1200px;
             --padding: 1rem;
+            --dot-active-color: #5C0A8F;
+            --dot-inactive-color: #141414;
         }
 
         @font-face {
             font-family: 'Minecraft';
-            src: url('minecraft.woff2?v=1.8') format('woff2');
+            src: url('minecraft.woff2?v=1.9') format('woff2');
             font-display: swap;
         }
 
@@ -53,15 +55,17 @@
 
         header {
             background-color: var(--header-bg-color);
-            padding: 0.5rem;
+            padding: 0.5rem; /* Smaller padding */
             text-align: center;
             position: relative;
             width: 100%;
         }
 
         .logo {
-            max-width: 80%;
+            max-width: 50%; /* Smaller logo */
             height: auto;
+            display: block;
+            margin: 0 auto;
         }
 
         .main-content {
@@ -70,20 +74,20 @@
             max-width: var(--max-width);
             margin: 0 auto;
             text-align: center;
-            position: relative; /* For positioning of button and text */
+            position: relative;
         }
 
         .main-content h2 {
-            font-size: var(--font-size-large);
-            margin-bottom: 0.5rem; /* Small margin below */
-        }
+    font-size: 1.5rem !important; /* Forcing the font size */
+    margin-bottom: 1rem;
+}
 
         .slideshow-container {
             position: relative;
             max-width: 90%;
-            margin: 1rem auto; /* Space around slideshow */
-            border: 3px solid var(--button-color); /* Border around the slideshow */
-            padding: 0; /* No extra padding */
+            margin: 1rem auto;
+            border: 3px solid var(--button-color);
+            padding: 0;
         }
 
         .slides {
@@ -102,49 +106,68 @@
         }
 
         .description-container {
-            margin: 1rem 0; /* Space around description */
-            text-align: center; /* Center the text */
-        }
-
-        .slideshow-description {
-            font-size: var(--font-size-description); /* Size for the description */
-        }
-
-        .button-container {
-            display: flex;
-            justify-content: center; /* Center the button horizontally */
-            margin: 0.5rem auto; /* Margin around button */
-            max-width: 90%; /* Ensure content doesn't overflow */
-        }
-
-        a {
-            color: var(--button-color);
-            text-decoration: none;
-            font-size: var(--font-size-button); /* Increased font size for the button */
-            border: 3px solid var(--button-color);
-            padding: 0.8rem 2rem; /* Adjusted padding for the button size */
-            background-color: var(--header-bg-color);
-            border-radius: 0; /* Removed border-radius */
-            display: inline-block;
-            transition: background-color 0.3s, color 0.3s;
+            margin: 1rem 0;
             text-align: center;
         }
 
-        a:hover {
-            background-color: var(--button-hover-bg-color);
-            color: var(--button-hover-text-color);
+        .slideshow-description {
+    font-size: 1rem !important; /* Increase font size */
+    color: var(--text-color);
+    margin-bottom: 1rem; /* Space between description and button */
+}
+
+        .button-wrapper {
+            text-align: center;
+            margin-top: 4rem; /* Move button down */
+            margin-bottom: 4rem; /* Space below the button */
         }
 
-        a:active {
-            background-color: var(--button-pressed-bg-color);
-            color: var(--button-pressed-text-color);
+        .button-container {
+            margin-bottom: 1rem; /* Space between button and download text */
         }
 
         .download-text {
-            font-size: var(--font-size-download-text); /* Smaller font size for the text under the button */
-            text-align: center; /* Center text */
-            margin-top: 0.2rem; /* Move text closer to button */
-            padding: 0; /* Ensure no additional padding */
+            font-size: var(--font-size-download-text);
+            color: var(--text-color);
+            margin-top: 1rem; /* Space between button and download text */
+        }
+
+        a {
+            color: var(--button-text-color);
+            text-decoration: none;
+            font-size: var(--font-size-button);
+            border: 3px solid var(--button-color);
+            padding: 0.8rem 2rem;
+            background-color: var(--button-color);
+            border-radius: 0;
+            display: inline-block;
+            transition: background-color 0.3s, border-color 0.3s;
+            text-align: center;
+        }
+
+        a:hover,
+        a:active {
+            background-color: var(--button-pressed-bg-color);
+            border-color: var(--button-pressed-border-color);
+        }
+
+        .dots-container {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            gap: 10px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: var(--dot-inactive-color);
+            transition: background-color 0.3s;
+        }
+
+        .dot.active {
+            background-color: var(--dot-active-color);
         }
 
         footer {
@@ -153,15 +176,88 @@
             background-color: var(--header-bg-color);
             color: var(--button-color);
             font-size: var(--font-size-small);
-            margin-top: 1rem; /* Space above footer to ensure separation */
+            margin-top: 0; /* Ensure no extra margin above the footer */
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 1200px) {
+            .main-content {
+                padding: 0.5rem;
+            }
+
+            .logo {
+                max-width: 60%;
+            }
+
+            .slideshow-container {
+                border-width: 2px;
+            }
+
+            .button-wrapper {
+                margin-top: 3rem;
+                margin-bottom: 3rem;
+            }
+
+            .slideshow-description {
+                font-size: var(--font-size-medium);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main-content h2 {
+                font-size: var(--font-size-large);
+            }
+
+            .button-wrapper {
+                margin-top: 2rem;
+                margin-bottom: 2rem;
+            }
+
+            .download-text {
+                font-size: var(--font-size-xsmall);
+            }
+
+            .slideshow-description {
+                font-size: var(--font-size-small);
+            }
+
+            .dot {
+                width: 8px;
+                height: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-content h2 {
+                font-size: var(--font-size-medium);
+            }
+
+            .button-wrapper {
+                text-align: center;
+                margin-top: 14rem;
+                margin-bottom: 0rem;
+            }
+
+            .download-text {
+                font-size: var(--font-size-xsmall);
+            }
+
+            .slideshow-description {
+                font-size: var(--font-size-xsmall);
+            }
+
+            .dot {
+                width: 6px;
+                height: 6px;
+            }
         }
     </style>
 </head>
 <body>
     <header>
         <picture>
-            <source srcset="images/Wporpol-logo.webp?v=1.8" type="image/webp">
-            <img src="images/Wporpol-logo.webp?v=1.8" alt="Porpol Logo" class="logo">
+            <source srcset="images/Wporpol-logo.webp?v=1.9" type="image/webp">
+            <img src="images/Wporpol-logo.webp?v=1.9" alt="Porpol Logo" class="logo">
         </picture>
     </header>
 
@@ -169,25 +265,32 @@
         <h2 id="slide-title">Lorem Ipsum</h2>
         <div class="slideshow-container">
             <div class="slides active">
-                <img src="images/slide1.jpg?v=1.8" alt="Slide 1">
+                <img src="images/slide1.jpg?v=1.9" alt="Slide 1">
             </div>
             <div class="slides">
-                <img src="images/slide2.jpg?v=1.8" alt="Slide 2">
+                <img src="images/slide2.jpg?v=1.9" alt="Slide 2">
             </div>
             <div class="slides">
-                <img src="images/slide3.jpg?v=1.8" alt="Slide 3">
+                <img src="images/slide3.jpg?v=1.9" alt="Slide 3">
+            </div>
+            <div class="dots-container">
+                <div class="dot active"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
             </div>
         </div>
-        <div class="description-container">
-            <h3 id="slide-description">Description of Slide 1</h3>
-        </div>
-    </div>
 
-    <!-- Button and download text moved below the slideshow and above the footer -->
-    <div class="button-container">
-        <a href="https://discord.gg/5UpCpSRPK6?v=1.8" target="_blank">Join Discord Server</a>
+        <div class="description-container">
+            <h3 class="slideshow-description">Description of Slide 1</h3>
+        </div>
+
+        <div class="button-wrapper">
+            <div class="button-container">
+                <a href="https://discord.gg/5UpCpSRPK6?v=1.9" target="_blank">Join Discord Server</a>
+            </div>
+            <div class="download-text">Download Porpol on the Discord Server</div>
+        </div>
     </div>
-    <div class="download-text">Download Porpol on the Discord Server</div>
 
     <footer>
         © 2024 Porpol. All rights reserved. <br>
@@ -195,33 +298,43 @@
     </footer>
 
     <script>
-        let slideIndex = 0;
-        const slides = document.querySelectorAll('.slides');
-        const slideDescriptions = ['Description of Slide 1', 'Description of Slide 2', 'Description of Slide 3'];
-        const slideTitles = ['Lorem Ipsum 1', 'Lorem Ipsum 3', 'Lorem Ipsum 3'];
+        document.addEventListener("DOMContentLoaded", function() {
+            let slideIndex = 0;
+            const slides = document.querySelectorAll('.slides');
+            const dots = document.querySelectorAll('.dot');
+            const slideTitle = document.getElementById('slide-title');
+            const slideDescription = document.querySelector('.slideshow-description');
 
-        const updateSlide = (n) => {
-            slides.forEach((slide, index) => {
-                slide.classList.remove('active');
-                if (index === n) slide.classList.add('active');
-            });
-            document.getElementById('slide-title').innerText = slideTitles[n];
-            document.getElementById('slide-description').innerText = slideDescriptions[n];
-        };
+            const slideDescriptions = ['Description of Slide 1', 'Description of Slide 2', 'Description of Slide 3'];
+            const slideTitles = ['Lorem Ipsum 1', 'Lorem Ipsum 2', 'Lorem Ipsum 3'];
 
-        const nextSlide = () => {
-            slideIndex = (slideIndex + 1) % slides.length;
+            const updateSlide = (n) => {
+                slides.forEach((slide, index) => {
+                    slide.classList.remove('active');
+                    if (index === n) slide.classList.add('active');
+                });
+                dots.forEach((dot, index) => {
+                    dot.classList.remove('active');
+                    if (index === n) dot.classList.add('active');
+                });
+                if (slideTitle) slideTitle.innerText = slideTitles[n];
+                if (slideDescription) slideDescription.innerText = slideDescriptions[n];
+            };
+
+            const nextSlide = () => {
+                slideIndex = (slideIndex + 1) % slides.length;
+                updateSlide(slideIndex);
+            };
+
+            const prevSlide = () => {
+                slideIndex = (slideIndex - 1 + slides.length) % slides.length;
+                updateSlide(slideIndex);
+            };
+
+            setInterval(nextSlide, 5000);
+
             updateSlide(slideIndex);
-        };
-
-        const prevSlide = () => {
-            slideIndex = (slideIndex - 1 + slides.length) % slides.length;
-            updateSlide(slideIndex);
-        };
-
-        setInterval(nextSlide, 5000); // Switch slides every 5 seconds
-
-        updateSlide(slideIndex);
+        });
     </script>
 </body>
 </html>
